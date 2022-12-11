@@ -12,30 +12,43 @@ class Movie {
   final bool video;
   final int voteCount;
   final String voteAverage;
-  final String posterPath;
+  final String poster_path;
 
   String error;
 
   Movie({
-    required this.backdrop_path,
-    required this.error,
-    required this.originalLanguage,
-    required this.id,
-    required this.originalTitle,
-    required this.overview,
-    required this.popularity,
-    required this.posterPath,
-    required this.releaseDate,
-    required this.title,
-    required this.video,
-    required this.voteAverage,
-    required this.voteCount,
+    this.backdrop_path,
+    this.error,
+    this.originalLanguage,
+    this.id,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.poster_path,
+    this.releaseDate,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
   });
 
   factory Movie.fromJson(dynamic json) {
     if (json == null) {
       return Movie();
     }
-    return Movie(backdrop_path: json['backdrop_path'])
+    return Movie(
+      backdrop_path: json['backdrop_path'],
+      id: json['id'],
+      originalLanguage: json['originalLanguage'],
+      originalTitle: json['originalTitle'],
+      overview: json['overview'],
+      popularity: json['populrity'],
+      poster_path: json['poster_path'],
+      releaseDate: json['releaseDate'],
+      title: json['title'],
+      video: json['video'],
+      voteAverage: json['voteAverage'],
+      voteCount: json['voteCount'],
+    );
   }
 }
